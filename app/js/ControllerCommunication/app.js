@@ -22,6 +22,6 @@ communicationModule.config(function ($routeProvider) {
 		controller : 'pubsubController'
 	})
 	.otherwise({
-        redirectTo:'/homePage'
+        redirectTo:'/login'
     });
 });

@@ -1,7 +1,7 @@
 communicationModule.controller('loginController', function($scope, userService, $location) {
 	
-	$scope.userName = 'Shail';
-	$scope.password = 'Purohit';
+	$scope.userName = 'su';
+	$scope.password = 'su';
 	$scope.userData = {
 		'name' : $scope.userName,
 		'password': $scope.password
