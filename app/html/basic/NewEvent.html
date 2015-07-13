@@ -1,0 +1,47 @@
+<html lang="en">
+    <head> 
+        <title>EventDetails</title>
+        <link rel = "stylesheet" href="css/bootstrap.min.css"/>     
+    </head>
+    <body ng-app="eventsApp">  
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li> <a href="NewEvent.html">New Event</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-controller="EditEventController" style="padding-left:20px; paddning-right:20px">
+                <div class="container">
+                    <h1>Create new event</h1>
+                    <hr/>
+                    <form name="newEditEventForm">
+                        <fieldset>
+                            <label for="name">Event Name</label>
+                            <input id="eventName" type="text" ng-mode="event.name" required` placeholder="enter name" /><br/>
+
+                            <label for="date">Event Date</label>
+                            <input id="eventDate" type="text" ng-mode="event.date" placeholder="formate (dd-MON-yyyy)" /><br/>
+
+                            <label for="time">Event time</label>
+                            <input id="eventTime" type="text" ng-mode="event.time" placeholder="enter time" /><br/>
+
+                            
+                            <label for="address.confRoom">Event conf room</label>
+                            <input id="eventConRoom" type="text" ng-mode="event.address.confRoom" placeholder="enter room details" /><br/>
+
+                            <label for="address.extention">extention</label>
+                            <input id="eventName" type="text" ng-mode="event.address.extention" placeholder="name" /><br/>
+                            <button type="submit" ng-disabled="newEditEventForm.$invalid" ng-click="saveEvent(event,newEditEventForm)" class="btn btn-primary">Save</button>
+                            <button type="button" ng-click="cancleEvent(event)" class="btn btn-default">Cancle</button>
+                                   
+                        </fieldset>
+                    </form>
+                </div>
+            </div> 
+       <script src = "../../lib/jquery-1.11.2.min.js" ></script>
+      <script src = "../../lib/angular/angular.js" ></script>  
+      <script src = "../../js/basic/app.js" ></script>
+    <script src = "../../js/basic/controller/EditEventController.js" ></script>
+    </body>    
+</html>    

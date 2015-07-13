@@ -1,0 +1,26 @@
+<html lang="en">
+    <head> 
+        <title>AngularJS first example</title>
+        <link rel = "stylesheet" href="css/bootstrap.min.css"/>     
+    </head>
+        
+    <body ng-app="myApp">  
+                        
+        <div class="container" ng-controller = "myAppController">
+            <div class = "col-md-12" >
+                
+                <h1 > Hello {{name}}!! </h1>
+            </div>
+            <div class="container">
+                <button ng-click="changeName()"> Change Name </button>
+            </div>
+        <input type="text" name="name" ng-model="greeting" required>
+          <h2 > Hello {{greeting}}!! </h2>
+        
+        </div>
+        
+  <script src = "../../lib/jquery-1.11.2.min.js" ></script>
+  <script src = "../../lib/angular/angular.js" ></script>  
+     <script src = "../../js/basic/controller/myAppController.js" ></script>
+    </body>    
+</html>    

@@ -1,0 +1,18 @@
+<div>
+	<h1>Hello  <span class="user">{{ parentUserData.name }}</span></h1>
+	<div ng-controller="ParentCtrl">	<!--The parent-->
+	Parent : {{parentData}}
+		<div ng-controller="SelfCtrl">              <!--Own-->
+			Self : 
+			<input type="button" value="Broadcast" ng-click="broadcast()"></input>
+			<input type="button" value="Emit" ng-click="emit()"></input>
+			<input type="button" value="Bro Broadcast" ng-click="broBroadcast()"></input>
+			<div ng-controller="ChildCtrl">
+				Child :{{childData}}
+			</div>   <!--The child-->
+		</div>
+		<div ng-controller="BroCtrl">
+			Bro : {{broData}}
+		</div>         <!--The same level-->
+	</div>
+</div>
