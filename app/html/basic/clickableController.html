@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app=eventsApp>
+<head>
+<meta charset=utf-8 />
+<title>Directive example</title>
+</head>
+<body ng-controller="MainCtrl">
+	<clickable foo="foo" bar="bar"></clickable>
+	<hr />
+	{{ hello }}
+	<button ng-click="setHello()">Change hello</button>
+	<script src="../../lib/jquery-1.11.2.min.js"></script>
+	<script src="../../lib/angular/angular.js"></script>
+	<script src="../../js/basic/app.js"></script>
+	<script src="../../js/basic/controller/clickableController.js"></script>
+	<script src="../../js/basic/directive/clickable.js"></script>
+
+</body>
+</html>
