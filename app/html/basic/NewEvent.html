@@ -1,7 +1,9 @@
+<!doctype html>
 <html lang="en">
     <head> 
+        <meta charset="UTF-8">
         <title>EventDetails</title>
-        <link rel = "stylesheet" href="css/bootstrap.min.css"/>     
+        <link rel = "stylesheet" href="../../css/bootstrap.min.css"/>     
     </head>
     <body ng-app="eventsApp">  
             <div class="navbar">
@@ -11,37 +13,59 @@
                     </ul>
                 </div>
             </div>
-            <div ng-controller="EditEventController" style="padding-left:20px; paddning-right:20px">
+            <div ng-controller="editEventController" style="padding-left:20px; paddning-right:20px">
                 <div class="container">
                     <h1>Create new event</h1>
                     <hr/>
-                    <form name="newEditEventForm">
+                    <form name="newEditEventForm" novalidate class="simple-form">
                         <fieldset>
-                            <label for="name">Event Name</label>
-                            <input id="eventName" type="text" ng-mode="event.name" required` placeholder="enter name" /><br/>
+                            Event Name:
+                            <input id="eventName" type="text" ng-model="evnts.name" name="eName" required placeholder="enter name" /><br/>
+                            <span style="color:red" ng-show="newEditEventForm.eName.$invalid">
+                                <br/>
+                                <span ng-show="newEditEventForm.eName.$error.required">Event name is required.</span>
+                                <br/>
+                            </span>
 
-                            <label for="date">Event Date</label>
-                            <input id="eventDate" type="text" ng-mode="event.date" placeholder="formate (dd-MON-yyyy)" /><br/>
+                            Event Date:
+                            <input id="eventDate" type="text" ng-model="evnts.date" name="date" required placeholder="formate (dd-MON-yyyy)"
+                                   ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" /><br/>
+                              <span style="color:red" ng-show="newEditEventForm.date.$invalid">
+                                <span  ng-show="newEditEventForm.date.$error.pattern">Not valid Date!</span>
+                                  <br/>
+                            </span>
 
-                            <label for="time">Event time</label>
-                            <input id="eventTime" type="text" ng-mode="event.time" placeholder="enter time" /><br/>
+                            Event time:
+                            <input id="eventTime" type="text" ng-model="evnts.time" name="time" placeholder="enter time" /><br/>
 
                             
-                            <label for="address.confRoom">Event conf room</label>
-                            <input id="eventConRoom" type="text" ng-mode="event.address.confRoom" placeholder="enter room details" /><br/>
+                            Event conf room:
+                            <input id="eventConRoom" type="text" ng-model="evnts.address.confRoom"  name="confRoom" 
+                                   availables="Mars,Earth,Venus" placeholder="enter room details" /><br/>
+                          <span style="color:red" ng-show="newEditEventForm.confRoom.$invalid">
+                                <span  ng-show="newEditEventForm.confRoom.$error.availables">Not valid Room!</span>
+                                  <br/>
+                            </span>
 
-                            <label for="address.extention">extention</label>
-                            <input id="eventName" type="text" ng-mode="event.address.extention" placeholder="name" /><br/>
-                            <button type="submit" ng-disabled="newEditEventForm.$invalid" ng-click="saveEvent(event,newEditEventForm)" class="btn btn-primary">Save</button>
-                            <button type="button" ng-click="cancleEvent(event)" class="btn btn-default">Cancle</button>
+                            
+                            Extention:
+                            <input id="eventName" type="text" ng-model="evnts.address.extention"  name="extention" placeholder="name" /><br/>
+                            
+                            <button type="submit" name="submit" ng-click="saveEvent(evnts)"
+                                    ng-disabled="newEditEventForm.eName.$invalid">Save</button>
+                            
+                            <button type="button" name="reset" ng-click="cancleEvent(evnts)" >Cancle</button>
                                    
                         </fieldset>
                     </form>
+                     <pre>form = {{evnts | json}}</pre>
+                       
                 </div>
             </div> 
        <script src = "../../lib/jquery-1.11.2.min.js" ></script>
       <script src = "../../lib/angular/angular.js" ></script>  
       <script src = "../../js/basic/app.js" ></script>
-    <script src = "../../js/basic/controller/EditEventController.js" ></script>
+    <script src = "../../js/basic/controller/editEventController.js" ></script>
+        <script src = "../../js/basic/directive/roomValidator.js" ></script>
     </body>    
 </html>    
