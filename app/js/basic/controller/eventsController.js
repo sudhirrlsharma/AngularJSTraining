@@ -1,10 +1,23 @@
 'use strict';
-eventsApp.controller('eventsController',  ['$scope', 'eventService', function($scope, eventService) {
-	console.log(eventService);
-	console.log(eventService.getEvent());
-	console.log(eventService.save());
+eventsApp.controller('eventsController',  ['$scope', '$timeout','$routeParams', 'eventService', function($scope,$timeout,$routeParams, eventService) {
 	$scope.sortOrder = "voteCount";
-	$scope.event = eventService.getEvent();
+    if($routeParams.eventI){
+        console.log($routeParams.eventId);
+
+    }
+	eventService.getEvent(function(data){
+        $scope.event=data;
+    });
+    
+//    var eventData = eventService.getEvent();
+//    
+//    eventData.then(function (data){
+//         console.log(data);
+//        $scope.event = data;
+//    }, function(status){
+//        console.log(status);
+//    });
+//    console.log(eventData);
 
 	$scope.increaseVote = function(t) {
 		t.voteCount = t.voteCount + 1;

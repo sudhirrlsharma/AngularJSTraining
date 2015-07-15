@@ -1,0 +1,11 @@
+		<div class="container">
+			<h1 ng-bind-template = "{{event.name | uppercase}}  {{event.date}}  {{event.time}}"></h1>
+			<ul>
+				<li ng-repeat="topic in event.topics">
+                    <strong>{{topic.title }} </strong></b>
+					|| {{topic.duration | duration}} || {{topic.voteCount }} <a
+					name="up" ng-click="increaseVote(topic)">up</a> <a name="up"
+					ng-click="decreaseVote(topic)">down</a></li>
+			</ul>
+		</div>
+	</div>

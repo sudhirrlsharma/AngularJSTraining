@@ -16,8 +16,41 @@
             </div>
         <input type="text" name="name" ng-model="greeting" required>
           <h2 > Hello {{greeting}}!! </h2>
-        
+            <myapp-directive></myapp-directive>
+          <my-customer info="customerInfo"></my-customer>
         </div>
+
+ <div ng-controller="parantCtrl" style="border:2px solid #E75D5C; padding:5px;">
+     <h1>Parent Controller</h1>
+    <p>Message : {{parantMessage}}</p>
+        <input ng-model="broadcastMsg">
+        <button ng-click="handleBroadcast(broadcastMsg);">Broadcast</button>
+
+     
+     
+    <br />
+    <div ng-controller="child1Ctrl" style="border:2px solid #428bca;padding:5px;">
+        <h1>Sister Controller</h1>
+         <p>Message : {{child1Message}}</p>
+        <input ng-model="msg">
+        <button ng-click="handleEmit(msg);">Emit</button>
+        <div ng-controller="grandChild1Ctrl" style="border:2px solid #428bca;padding:5px;">
+                <h1>grandChild Controller</h1>
+                <p>Message : {{grandChild1Messag}}</p>
+        </div>
+
+    </div>
+     
+    <div ng-controller="child2Ctrl" style="border:2px solid #428bca;padding:5px;">
+            <h1>Bro Controller</h1>
+          <p>Emit Message : {{child2Message}}</p>
+            <div ng-controller="grandChild2Ctrl" style="border:2px solid #428bca;padding:5px;">
+                <h1>grandChild Controlle</h1>
+                <p>Emit Message : {{grandChild2Message}}</p>
+        </div>
+    </div>
+</div>
+        
         
   <script src = "../../lib/jquery-1.11.2.min.js" ></script>
   <script src = "../../lib/angular/angular.js" ></script>  
